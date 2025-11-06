@@ -39,15 +39,29 @@ export class Calculator {
     const { state } = this;
 
     if (numbers.indexOf(command) >= 0) {
-      if (state.current) {
+      if (state.operator && !state.previous) {
         state.previous = state.current;
         state.current = command;
       } else {
-        state.current = command;
+        state.current += command;
       }
-    } else if (operators.indexOf(command) >= 0) {
+    }
+    if (operators.indexOf(command) >= 0) {
+      if (!state.operator) {
+        state.operator = command;
+      } else {
+        state.current =
+          calculate(
+            state.previous ? Number(state.previous) : 0,
+            state.operator,
+            state.current ? Number(state.current) : 0,
+          ) + '';
+
+        state.previous = '';
+      }
       state.operator = command;
-    } else if (command === '=') {
+    }
+    if (command === '=') {
       state.current =
         calculate(
           state.previous ? Number(state.previous) : 0,
@@ -56,6 +70,14 @@ export class Calculator {
         ) + '';
       state.previous = '';
       state.operator = '';
+    } else if (command === '.') {
+      if (state.current.indexOf('.') === -1) {
+        if (!state.current) {
+          state.current = '0' + command;
+        } else {
+          state.current += command;
+        }
+      }
     }
   }
 }
