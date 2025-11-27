@@ -1,5 +1,4 @@
 import { Calculator } from './src/main';
-
 describe('Calculator', () => {
   const testCases = [
     ['39 + 55', ['55', '39', '+']],
@@ -18,14 +17,11 @@ describe('Calculator', () => {
     ['1.2 + 1.3 + ', ['2.5', '', '+']],
     ['12.9 + 3.1 + 3', ['3', '16', '+']],
     ['12.9 + 3.1 + 3 =', ['19', '', '']],
-  ] as const;
-
+  ];
   for (const [input, [current, previous, operator]] of testCases) {
     it(`${input} => c:${current}, p:${previous}, o:${operator}`, () => {
       const calc = new Calculator();
-
       calc.input(input);
-
       expect(calc.state).toEqual({ current, previous, operator });
     });
   }

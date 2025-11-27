@@ -32,8 +32,15 @@
   },
   "lint-staged": {
     "*.{ts,js}": [
-      "prettier --write",
-      "eslint --fix"
+      "prettier --write"
     ]
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Asliddin2002/testing.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Asliddin2002/testing/issues"
+  },
+  "homepage": "https://github.com/Asliddin2002/testing#readme"
 }

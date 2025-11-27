@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator Demo</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        display: flex;
+        justify-content: center;
+        padding: 50px;
+      }
+      .calculator {
+        border: 1px solid #ccc;
+        padding: 20px;
+        width: 200px;
+      }
+      .clear-btn {
+        position: absolute;
+        right: 6px;
+        top: 6px;
+        width: 28px;
+        height: 28px;
+        font-size: 16px;
+        line-height: 1;
+        border: none;
+        background: #f0f0f0;
+        border-radius: 4px;
+        cursor: pointer;
+        padding: 0;
+      }
+      .clear-btn:hover {
+        background: #e0e0e0;
+      }
+      input {
+        width: 100%;
+        font-size: 1.2em;
+        text-align: right;
+        margin-bottom: 10px;
+      }
+      button {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1em;
+        margin: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="calculator">
+      <div style="position: relative">
+        <input id="display" disabled />
+        <!-- <button id="clear" aria-label="Clear" title="Clear" class="clear-btn">
+          ×
+        </button> -->
+      </div>
+      <div id="buttons"></div>
+    </div>
+
+    <script type="module" src="./dist/src/index.js"></script>
+  </body>
+</html>
